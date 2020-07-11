@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head th:include="layout :: htmlhead"></head>
+    <body>
+        <div class="container">
+			<nav th:replace="layout :: menu">(menu)</nav>
+        <h1>Paciente</h1>
+        <a th:href="@{'/paciente/alterar/' + ${umpaciente.id}}" class="btn btn-primary btn-lg">Alterar</a>
+            <table class ="table">
+              <thead>
+                <th>id</th>
+                <th>nome</th>
+                <th>sexo</th>
+                <th>Data Nascimento</th>
+                <th></th>
+            </thead>
+             <tbody>
+                 <tr th:each="umpaciente : ${listapacientes}">
+                     <td th:txt = "${umpaciente.id}"></td>
+                     <td th:txt = "${umpaciente.nome}"></td>
+
+                     <td <a th:href="@{'/paciente/alterar/' + ${umpaciente.id}}" class="btn btn-primary btn-lg">Alterar</a>
+                 </tr>
+             </tbody>
+            </table>
+        </div>
+        <div th:include="layout :: footer" id="footer">(footer)</div> 
+    </body>
+</html>
